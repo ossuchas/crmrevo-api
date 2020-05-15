@@ -10,8 +10,4 @@ requests
 flask-marshmallow==0.10.1
 marshmallow==3.0.0rc5
 marshmallow-sqlalchemy==0.17.0
-<<<<<<< HEAD
 python-dotenv
-=======
-python-dotenv
->>>>>>> 5cb9f7213cade4ade86e86a39ee5c39ea78c2cf0
