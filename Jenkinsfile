@@ -3,7 +3,7 @@ pipeline {
     registry = "apthailand/suchat_s"
     registryCredential = 'docker_ossuchas'
     dockerImage = ''
-    image_tag_number = 'crmreo-eqn-api_v1.0.6'
+    image_tag_number = 'crmreo-eqn-api_v1.0.7'
     deployments = 'crmrevo-api'
     projects = 'testrepo'
   }
