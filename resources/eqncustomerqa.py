@@ -43,7 +43,8 @@ class EQNCustomerTransQAns(Resource):
 
         customer.save_to_db()
 
-        return user_schema.dump(customer), 200
+        #return user_schema.dump(customer), 200
+        return {'message':'success'}, 200
 
     def put(self, applicationId):
         return {'message': 'save'}, 200
