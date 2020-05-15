@@ -4,7 +4,7 @@ pipeline {
     registryCredential = 'docker_ossuchas'
     dockerImage = ''
     image_tag_number = 'crmreo-eqn-api_v1.0.0'
-    deployments = 'linechatbot'
+    deployments = 'crmrevo-api'
     projects = 'testrepo'
   }
   agent any
