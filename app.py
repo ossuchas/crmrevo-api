@@ -10,7 +10,6 @@ from ma import ma
 from blacklist import BLACKLIST
 
 from resources.authen import Authen
-from resources.test import Item
 from resources.eqncustomerqa import EQNCustomerTransQAns
 from config import APP_SECRET_KEY
 
@@ -44,7 +43,6 @@ def check_if_token_in_blacklist(decrypted_token):
 
 
 api.add_resource(Authen, "/eqn/oauth/token")
-api.add_resource(Item, "/item/<string:name>")
 api.add_resource(EQNCustomerTransQAns, "/eqn/submit/<string:applicationId>")
 
 
