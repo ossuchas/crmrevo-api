@@ -22,6 +22,8 @@ class EQNCustomerTransQAns(Resource):
     parser.add_argument("last_name", type=str, required=True, help="This last_name field cannot blank allowed.")
     parser.add_argument("email", type=str, required=True, help="This email field cannot blank allowed.")
     parser.add_argument("mobile_no", type=str, required=True, help="This mobile no. field cannot blank allowed.")
+    parser.add_argument("createdby", type=str)
+    parser.add_argument("updatedby", type=str)
 
     @jwt_required  # No longer needs brackets
     def post(self, applicationId):

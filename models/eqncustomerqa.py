@@ -3,6 +3,7 @@ from typing import List
 import uuid
 from sqlalchemy.dialects.postgresql import UUID
 from uuid import uuid4
+from datetime import datetime
 
 
 class EQNCustomerTransQAnsModel(db.Model):
@@ -15,6 +16,10 @@ class EQNCustomerTransQAnsModel(db.Model):
     last_name = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(100), nullable=False)
     mobile_no = db.Column(db.String(50), nullable=False)
+    created = db.Column(db.DateTime, default=datetime.now())
+    createdby = db.Column(db.String(50), default='flaskapi')
+    updated = db.Column(db.DateTime, default=datetime.now())
+    updatedby = db.Column(db.String(50), default='flaskapi')
 
     @classmethod
     def find_by_ref_id(cls, _eqn_ref_id: str) -> "EQNCustomerTransQAnsModel":
