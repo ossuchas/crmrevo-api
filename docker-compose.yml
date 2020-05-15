@@ -1,0 +1,12 @@
+version: '3'
+
+services: 
+  app:
+    image: docker.io/apthailand/suchat_s:aplinechatbot_v1
+    build:
+        context: .
+        dockerfile: ./Dockerfile
+    ports: 
+      - "5000:5000"
+    expose:
+      - "5000"
