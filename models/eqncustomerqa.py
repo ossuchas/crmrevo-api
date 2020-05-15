@@ -16,6 +16,7 @@ class EQNCustomerTransQAnsModel(db.Model):
     last_name = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(100), nullable=False)
     mobile_no = db.Column(db.String(50), nullable=False)
+    submit_dttm = db.Column(db.String(20))
     created = db.Column(db.DateTime, default=datetime.now())
     createdby = db.Column(db.String(50), default='flaskapi')
     updated = db.Column(db.DateTime, default=datetime.now())
