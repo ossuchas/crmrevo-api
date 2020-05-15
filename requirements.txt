@@ -1,4 +1,4 @@
-flask~=1.0.3
+flask
 flask_restful
 flask_cors
 flask_sqlalchemy
@@ -11,7 +11,4 @@ minio
 Pillow
 requests
 gunicorn
-python-dotenv~=0.10.3
-
-SQLAlchemy~=1.3.0
-Werkzeug~=0.15.4
+python-dotenv

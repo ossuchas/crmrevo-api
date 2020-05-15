@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/ossuchas/aplinechatbot.git'
+        git 'https://github.com/ossuchas/crmrevo-api.git'
       }
     }
     stage('Building image') {
