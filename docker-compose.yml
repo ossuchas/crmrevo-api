@@ -2,7 +2,7 @@ version: '3'
 
 services: 
   app:
-    image: docker.io/apthailand/suchat_s:aplinechatbot_v1
+    image: docker.io/apthailand/suchat_s:crmreo-eqn-api_v1
     build:
         context: .
         dockerfile: ./Dockerfile
