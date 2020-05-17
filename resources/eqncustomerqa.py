@@ -40,19 +40,60 @@ class EQNCustomerTransQAns(Resource):
     parser.add_argument("createdby", type=str)
     parser.add_argument("updatedby", type=str)
 
+    # @jwt_required  # No longer needs brackets
+    # def post(self, applicationId):
+    #     if EQNCustomerTransQAnsModel.find_by_ref_id(applicationId):
+    #         # add to blacklist
+    #         jti = get_raw_jwt()["jti"]  # jti is "JWT ID", a unique identifier for a JWT.
+    #         BLACKLIST.add(jti)
+    #
+    #         return {"message": "E-QN Ref Id with '{}' already exists.".format(applicationId)}, 400
+    #
+    #     data = EQNCustomerTransQAns.parser.parse_args()
+    #
+    #     customer = EQNCustomerTransQAnsModel(**data)
+    #     customer.eqn_ref_id = applicationId
+    #
+    #     # add to blacklist
+    #     jti = get_raw_jwt()["jti"]  # jti is "JWT ID", a unique identifier for a JWT.
+    #     BLACKLIST.add(jti)
+    #
+    #     customer.save_to_db()
+    #
+    #     return user_schema.dump(customer), 200
+
     @jwt_required  # No longer needs brackets
     def post(self, applicationId):
-        if EQNCustomerTransQAnsModel.find_by_ref_id(applicationId):
-            # add to blacklist
-            jti = get_raw_jwt()["jti"]  # jti is "JWT ID", a unique identifier for a JWT.
-            BLACKLIST.add(jti)
-
-            return {"message": "E-QN Ref Id with '{}' already exists.".format(applicationId)}, 400
-
         data = EQNCustomerTransQAns.parser.parse_args()
 
-        customer = EQNCustomerTransQAnsModel(**data)
-        customer.eqn_ref_id = applicationId
+        customer = EQNCustomerTransQAnsModel.find_by_ref_id(applicationId)
+
+        if customer:
+            customer.eqn_ref_id = applicationId
+            customer.projectid = data["projectid"]
+            customer.project_name = data["project_name"]
+            customer.first_name = data["first_name"]
+            customer.last_name = data["last_name"]
+            customer.email = data["email"]
+            customer.mobile_no = data["mobile_no"]
+            customer.csseen_media = data["csseen_media"]
+            customer.csbudget = data["csbudget"]
+            customer.csincome = data["csincome"]
+            customer.family_income = data["family_income"]
+            customer.proj_compare = data["proj_compare"]
+            customer.products_interest = data["products_interest"]
+            customer.cspersona = data["cspersona"]
+            customer.total_visit = data["total_visit"]
+            customer.reason_visit = data["reason_visit"]
+            customer.decision_maker = data["decision_maker"]
+            customer.probability = data["probability"]
+            customer.comment = data["comment"]
+            customer.submit_dttm = data["submit_dttm"]
+            customer.createdby = data["createdby"]
+            customer.updatedby = data["updatedby"]
+        else:
+            customer = EQNCustomerTransQAnsModel(**data)
+            customer.eqn_ref_id = applicationId
 
         # add to blacklist
         jti = get_raw_jwt()["jti"]  # jti is "JWT ID", a unique identifier for a JWT.
@@ -61,9 +102,3 @@ class EQNCustomerTransQAns(Resource):
         customer.save_to_db()
 
         return user_schema.dump(customer), 200
-        # return {'message':'success'}, 200
-
-    def put(self, applicationId):
-        return {'message': 'save'}, 200
-
-
