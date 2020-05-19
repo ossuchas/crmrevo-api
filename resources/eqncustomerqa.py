@@ -20,6 +20,7 @@ class EQNCustomerTransQAns(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument("projectid", type=str, required=True, help="This Project Idf ield cannot blank allowed")
     parser.add_argument("project_name", type=str, required=True, help="This Project Name field cannot blank allowed")
+    parser.add_argument("title_name", type=str)
     parser.add_argument("first_name", type=str, required=True, help="This first_name field cannot blank allowed")
     parser.add_argument("last_name", type=str, required=True, help="This last_name field cannot blank allowed.")
     parser.add_argument("email", type=str, required=True, help="This email field cannot blank allowed.")
@@ -72,6 +73,7 @@ class EQNCustomerTransQAns(Resource):
             customer.eqn_ref_id = applicationId
             customer.projectid = data["projectid"]
             customer.project_name = data["project_name"]
+            customer.title_name = data["title_name"]
             customer.first_name = data["first_name"]
             customer.last_name = data["last_name"]
             customer.email = data["email"]
@@ -89,6 +91,7 @@ class EQNCustomerTransQAns(Resource):
             customer.probability = data["probability"]
             customer.comment = data["comment"]
             customer.submit_dttm = data["submit_dttm"]
+            customer.process_flag = "N"
             customer.createdby = data["createdby"]
             customer.updatedby = data["updatedby"]
         else:
