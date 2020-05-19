@@ -36,6 +36,11 @@ class EQNCustomerTransQAns(Resource):
     parser.add_argument("reason_visit", type=str)
     parser.add_argument("decision_maker", type=str)
     parser.add_argument("probability", type=str)
+
+    parser.add_argument("contradiction", type=str)
+    parser.add_argument("buyornot", type=str)
+    parser.add_argument("other", type=str)
+
     parser.add_argument("comment", type=str)
     parser.add_argument("submit_dttm", type=str)
     parser.add_argument("createdby", type=str)

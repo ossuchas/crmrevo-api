@@ -11,7 +11,8 @@ class EQNCustomerTransQAnsModel(db.Model):
     __table_args__ = {"schema": "EQN"}
 
     tran_id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid4)
-    contactid = db.Column(UUID(as_uuid=True), nullable=True)
+    contact_ref_id = db.Column(db.String(255), nullable=True)
+    contact_ref_guid = db.Column(UUID(as_uuid=True), nullable=True)
     eqn_ref_id = db.Column(db.String(255), nullable=False)
     projectid = db.Column(db.String(20), nullable=False)
     project_name = db.Column(db.String(255), nullable=False)
@@ -31,6 +32,11 @@ class EQNCustomerTransQAnsModel(db.Model):
     reason_visit = db.Column(db.String(2000))
     decision_maker = db.Column(db.String(255))
     probability = db.Column(db.String(100))
+
+    contradiction = db.Column(db.String(255))
+    buyornot = db.Column(db.String(255))
+    other = db.Column(db.String(2000))
+
     comment = db.Column(db.String(2000))
     submit_dttm = db.Column(db.String(20))
     process_flag = db.Column(db.String(1), default='N')
