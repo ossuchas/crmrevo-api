@@ -15,10 +15,13 @@ curl -X POST 'http://crmrevo-api-testrepo.devops-app.apthai.com/api/v1/eqn/submi
 -d '{
     "projectid": "10077",
     "project_name": "The Centro วัชรพล",
+    "title_name": "mrs.",
     "first_name": "suchat_s",
     "last_name": "sujalarnlap",
     "email": "suchat_s@apthai.com",
     "mobile_no": "0830824173",
+    "consent_flag": "Y",
+    "channel_convenient": "E",
     "csseen_media": "ป้ายบิลบอร์ด",
     "csbudget": "2 ล้านบาท",
     "csincome": "300,000 บาทต่อเดือน",
@@ -30,10 +33,13 @@ curl -X POST 'http://crmrevo-api-testrepo.devops-app.apthai.com/api/v1/eqn/submi
     "reason_visit": "สนใจหาซื้อบ้านใหม่",
     "decision_maker": "ภริยา",
     "probability": "medium",
+    "contradiction": "ข้อโต้แย้ง",
+    "buyornot": "สนใจซื้อหรือไม่",
+    "other": "อื่นๆ",
     "comment": "ไม่ค่อยพูด",
     "submit_dttm": "20200515201338",
-    "createdby": "suchat_s",
-    "updatedby": "annomymous"
+    "createdby": "test1",
+    "updatedby": "test2"
 }'
 
 
