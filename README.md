@@ -37,6 +37,8 @@ curl -X POST 'http://crmrevo-api-testrepo.devops-app.apthai.com/api/v1/eqn/submi
     "buyornot": "สนใจซื้อหรือไม่",
     "other": "อื่นๆ",
     "comment": "ไม่ค่อยพูด",
+    "total_answer": 7,
+    "total_question": 10,
     "submit_dttm": "20200515201338",
     "createdby": "test1",
     "updatedby": "test2"
