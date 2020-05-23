@@ -40,6 +40,8 @@ class EQNCustomerTransQAnsModel(db.Model):
     other = db.Column(db.String(2000))
 
     comment = db.Column(db.String(2000))
+    total_answer = db.Column(db.Integer, default=0)
+    total_question = db.Column(db.Integer, default=0)
     submit_dttm = db.Column(db.String(20))
     process_flag = db.Column(db.String(1), default='N')
     created = db.Column(db.DateTime, default=datetime.now())

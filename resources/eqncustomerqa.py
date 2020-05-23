@@ -44,31 +44,11 @@ class EQNCustomerTransQAns(Resource):
     parser.add_argument("other", type=str)
 
     parser.add_argument("comment", type=str)
+    parser.add_argument("total_answer", type=int)
+    parser.add_argument("total_question", type=int)
     parser.add_argument("submit_dttm", type=str)
     parser.add_argument("createdby", type=str)
     parser.add_argument("updatedby", type=str)
-
-    # @jwt_required  # No longer needs brackets
-    # def post(self, applicationId):
-    #     if EQNCustomerTransQAnsModel.find_by_ref_id(applicationId):
-    #         # add to blacklist
-    #         jti = get_raw_jwt()["jti"]  # jti is "JWT ID", a unique identifier for a JWT.
-    #         BLACKLIST.add(jti)
-    #
-    #         return {"message": "E-QN Ref Id with '{}' already exists.".format(applicationId)}, 400
-    #
-    #     data = EQNCustomerTransQAns.parser.parse_args()
-    #
-    #     customer = EQNCustomerTransQAnsModel(**data)
-    #     customer.eqn_ref_id = applicationId
-    #
-    #     # add to blacklist
-    #     jti = get_raw_jwt()["jti"]  # jti is "JWT ID", a unique identifier for a JWT.
-    #     BLACKLIST.add(jti)
-    #
-    #     customer.save_to_db()
-    #
-    #     return user_schema.dump(customer), 200
 
     @jwt_required  # No longer needs brackets
     def post(self, applicationId):
@@ -99,6 +79,8 @@ class EQNCustomerTransQAns(Resource):
             customer.decision_maker = data["decision_maker"]
             customer.probability = data["probability"]
             customer.comment = data["comment"]
+            customer.total_answer = data["total_answer"]
+            customer.total_question= data["total_question"]
             customer.submit_dttm = data["submit_dttm"]
             customer.process_flag = "N"
             customer.createdby = data["createdby"]
