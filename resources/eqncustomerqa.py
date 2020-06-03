@@ -26,6 +26,8 @@ class EQNCustomerTransQAns(Resource):
     parser.add_argument("email", type=str, required=True, help="This email field cannot blank allowed.")
     parser.add_argument("mobile_no", type=str, required=True, help="This mobile no. field cannot blank allowed.")
     parser.add_argument("consent_flag", type=str, required=True, help="This consent flag field cannot blank allowed.")
+    parser.add_argument("consent_ads_flag", type=str, required=True,
+                        help="This consent Ads flag field cannot blank allowed.")
     parser.add_argument("channel_convenient", type=str)
     parser.add_argument("csseen_media", type=str)
     parser.add_argument("csbudget", type=str)
@@ -41,8 +43,20 @@ class EQNCustomerTransQAns(Resource):
 
     parser.add_argument("contradiction", type=str)
     parser.add_argument("buyornot", type=str)
-    parser.add_argument("other", type=str)
 
+    # Modified by Suchat S. 2020-06-03 Add new column from db
+    parser.add_argument("age", type=int)
+    parser.add_argument("occupation", type=str)
+    parser.add_argument("marital_status", type=str)
+    parser.add_argument("children_numb", type=int)
+    parser.add_argument("objective_considering", type=str)
+    parser.add_argument("housing_characteristics", type=str)
+    parser.add_argument("online_media", type=str)
+    parser.add_argument("offline_media", type=str)
+    parser.add_argument("visit_route", type=str)
+    parser.add_argument("lcowner", type=str)
+
+    parser.add_argument("other", type=str)
     parser.add_argument("comment", type=str)
     parser.add_argument("total_answer", type=int)
     parser.add_argument("total_question", type=int)
@@ -66,6 +80,7 @@ class EQNCustomerTransQAns(Resource):
             customer.email = data["email"]
             customer.mobile_no = data["mobile_no"]
             customer.consent_flag = data["consent_flag"]
+            customer.consent_ads_flag = data["consent_ads_flag"]
             customer.channel_convenient = data["channel_convenient"]
             customer.csseen_media = data["csseen_media"]
             customer.csbudget = data["csbudget"]
@@ -78,6 +93,22 @@ class EQNCustomerTransQAns(Resource):
             customer.reason_visit = data["reason_visit"]
             customer.decision_maker = data["decision_maker"]
             customer.probability = data["probability"]
+            customer.contradiction = data["contradiction"]
+            customer.buyornot = data["buyornot"]
+
+            # Modified by Suchat S. 2020-06-03 Add new column from db
+            customer.age = data["age"]
+            customer.occupation = data["occupation"]
+            customer.marital_status = data["marital_status"]
+            customer.children_numb = data["children_numb"]
+            customer.objective_considering = data["objective_considering"]
+            customer.housing_characteristics = data["housing_characteristics"]
+            customer.online_media = data["online_media"]
+            customer.offline_media = data["offline_media"]
+            customer.visit_route = data["visit_route"]
+            customer.lcowner = data["lcowner"]
+
+            customer.other = data["other"]
             customer.comment = data["comment"]
             customer.total_answer = data["total_answer"]
             customer.total_question= data["total_question"]

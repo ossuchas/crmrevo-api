@@ -22,6 +22,7 @@ class EQNCustomerTransQAnsModel(db.Model):
     email = db.Column(db.String(100), nullable=False)
     mobile_no = db.Column(db.String(50), nullable=False)
     consent_flag = db.Column(db.String(2), nullable=False, default="N")
+    consent_ads_flag = db.Column(db.String(2), nullable=False, default="N")
     channel_convenient = db.Column(db.String(5))
     csseen_media = db.Column(db.String(2000))
     csbudget = db.Column(db.String(200))
@@ -37,6 +38,19 @@ class EQNCustomerTransQAnsModel(db.Model):
 
     contradiction = db.Column(db.String(255))
     buyornot = db.Column(db.String(255))
+
+    # Modified by Suchat S. 2020-06-03 Add new column from db
+    age = db.Column(db.Integer)
+    occupation = db.Column(db.String(255))
+    marital_status = db.Column(db.String(255))
+    children_numb = db.Column(db.Integer)
+    objective_considering = db.Column(db.String(2000))
+    housing_characteristics = db.Column(db.String(2000))
+    online_media = db.Column(db.String(2000))
+    offline_media = db.Column(db.String(2000))
+    visit_route = db.Column(db.String(2000))
+    lcowner = db.Column(db.String(50))
+
     other = db.Column(db.String(2000))
 
     comment = db.Column(db.String(2000))
