@@ -36,10 +36,10 @@ class EQNCustomerTransQAns(Resource):
     parser.add_argument("proj_compare", type=str)
     parser.add_argument("products_interest", type=str)
     parser.add_argument("cspersona", type=str)
-    parser.add_argument("total_visit", type=str)
+    # parser.add_argument("total_visit", type=str)
     parser.add_argument("reason_visit", type=str)
-    parser.add_argument("decision_maker", type=str)
-    parser.add_argument("probability", type=str)
+    # parser.add_argument("decision_maker", type=str)
+    # parser.add_argument("probability", type=str)
 
     parser.add_argument("contradiction", type=str)
     parser.add_argument("buyornot", type=str)
@@ -89,10 +89,10 @@ class EQNCustomerTransQAns(Resource):
             customer.proj_compare = data["proj_compare"]
             customer.products_interest = data["products_interest"]
             customer.cspersona = data["cspersona"]
-            customer.total_visit = data["total_visit"]
+            # customer.total_visit = data["total_visit"]
             customer.reason_visit = data["reason_visit"]
-            customer.decision_maker = data["decision_maker"]
-            customer.probability = data["probability"]
+            # customer.decision_maker = data["decision_maker"]
+            # customer.probability = data["probability"]
             customer.contradiction = data["contradiction"]
             customer.buyornot = data["buyornot"]
 

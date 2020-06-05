@@ -31,10 +31,10 @@ class EQNCustomerTransQAnsModel(db.Model):
     proj_compare = db.Column(db.String(255))
     products_interest = db.Column(db.String(2000))
     cspersona = db.Column(db.String(2000))
-    total_visit = db.Column(db.String(100))
+    # total_visit = db.Column(db.String(100))
     reason_visit = db.Column(db.String(2000))
-    decision_maker = db.Column(db.String(255))
-    probability = db.Column(db.String(100))
+    # decision_maker = db.Column(db.String(255))
+    # probability = db.Column(db.String(100))
 
     contradiction = db.Column(db.String(255))
     buyornot = db.Column(db.String(255))
