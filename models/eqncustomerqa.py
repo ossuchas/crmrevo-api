@@ -49,6 +49,9 @@ class EQNCustomerTransQAnsModel(db.Model):
     online_media = db.Column(db.String(2000))
     offline_media = db.Column(db.String(2000))
     visit_route = db.Column(db.String(2000))
+
+    deeplink_url = db.Column(db.String(2000))
+
     lcowner = db.Column(db.String(50))
 
     other = db.Column(db.String(2000))

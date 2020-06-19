@@ -54,6 +54,7 @@ class EQNCustomerTransQAns(Resource):
     parser.add_argument("online_media", type=str)
     parser.add_argument("offline_media", type=str)
     parser.add_argument("visit_route", type=str)
+    parser.add_argument("deeplink_url", type=str)
     parser.add_argument("lcowner", type=str)
 
     parser.add_argument("other", type=str)
@@ -106,6 +107,7 @@ class EQNCustomerTransQAns(Resource):
             customer.online_media = data["online_media"]
             customer.offline_media = data["offline_media"]
             customer.visit_route = data["visit_route"]
+            customer.deeplink_url = data["deeplink_url"]
             customer.lcowner = data["lcowner"]
 
             customer.other = data["other"]
