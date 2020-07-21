@@ -63,8 +63,8 @@ class EQNCustomerTransQAnsModel(db.Model):
     process_flag = db.Column(db.String(1), default='N')
     # created = db.Column(db.DateTime, default=datetime.now())
     createdby = db.Column(db.String(50), default='flaskapi')
-    updated = db.Column(db.DateTime, default=datetime.now())
-    # updatedby = db.Column(db.String(50), default='flaskapi')
+    # updated = db.Column(db.DateTime, default=datetime.now())
+    updatedby = db.Column(db.String(50), default='flaskapi')
 
     @classmethod
     def find_by_ref_id(cls, _eqn_ref_id: str) -> "EQNCustomerTransQAnsModel":
