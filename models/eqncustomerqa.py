@@ -70,6 +70,13 @@ class EQNCustomerTransQAnsModel(db.Model):
     def find_by_ref_id(cls, _eqn_ref_id: str) -> "EQNCustomerTransQAnsModel":
         return cls.query.filter_by(eqn_ref_id=_eqn_ref_id).first()
 
+    @classmethod
+    def get_info_test_id(cls):
+        sql_statement = """
+           EXECUTE sp_kai_test @FileName = 0
+           """
+        return db.session.execute(sql_statement).fetchall()
+
     def save_to_db(self) -> None:
         db.session.add(self)
         db.session.commit()

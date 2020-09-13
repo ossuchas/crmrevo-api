@@ -11,6 +11,9 @@ from blacklist import BLACKLIST
 
 from resources.authen import Authen
 from resources.eqncustomerqa import EQNCustomerTransQAns
+from resources.sp_rp_lc_018 import sp_rp_lc_018
+from resources.ImptMstProjTran import ImptMstProjTran
+
 from config import APP_SECRET_KEY
 
 app = Flask(__name__)
@@ -44,6 +47,8 @@ def check_if_token_in_blacklist(decrypted_token):
 
 api.add_resource(Authen, "/eqn/oauth/token")
 api.add_resource(EQNCustomerTransQAns, "/eqn/submit/<string:applicationId>")
+api.add_resource(sp_rp_lc_018, "/crm/test")
+api.add_resource(ImptMstProjTran, "/crm/getlogstrans/<string:guid>")
 
 
 if __name__ == '__main__':

@@ -130,3 +130,4 @@ class EQNCustomerTransQAns(Resource):
         customer.save_to_db()
 
         return user_schema.dump(customer), 200
+
