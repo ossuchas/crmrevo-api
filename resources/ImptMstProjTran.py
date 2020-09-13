@@ -24,3 +24,18 @@ class ImptMstProjTran(Resource):
             return logs_schema.dump(objs), 200
 
         return {"message": "No Data Found"}, 404
+
+    @classmethod
+    def post(cls, guid: str):
+        logs = ImptMstProjTranModel.find_by_ref_id(guid)
+
+        if logs:
+            logs.Import_Status = 'P'
+            logs.Updated = datetime.now()
+            logs.IsDeleted = 0
+        else:
+            return {"message": "Can not find Log Transaction for update"}, 404
+
+        logs.save_to_db()
+
+        return {"message": "Save Successful"}, 201
