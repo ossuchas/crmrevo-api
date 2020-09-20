@@ -30,7 +30,7 @@ class ImptMstProjTran(Resource):
         logs = ImptMstProjTranModel.find_by_ref_id(guid)
 
         if logs:
-            logs.Import_Status = 'P'
+            logs.Import_Status = 'A'
             logs.Updated = datetime.now()
             logs.IsDeleted = 0
         else:
