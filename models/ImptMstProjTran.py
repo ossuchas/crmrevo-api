@@ -16,12 +16,12 @@ class ImptMstProjTranModel(db.Model):
     UpdatedByUserID	= db.Column(UUID(as_uuid=True))
     IsDeleted = db.Column(db.Boolean)
     ProjectID = db.Column(UUID(as_uuid=True))
-    Import_Type	= db.Column(db.String(20))
+    Import_Type = db.Column(db.String(20))
     Import_Status = db.Column(db.String(2))
 
     @classmethod
     def find_by_ref_id(cls, _id: str) -> "ImptMstProjTranModel":
-        return cls.query.filter_by(ID=_id).first()
+        return cls.query.filter_by(ID=_id, Import_Status='P').first()
 
     def save_to_db(self) -> None:
         db.session.add(self)
