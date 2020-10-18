@@ -66,6 +66,11 @@ class EQNCustomerTransQAnsModel(db.Model):
     # updated = db.Column(db.DateTime, default=datetime.now())
     updatedby = db.Column(db.String(50), default='flaskapi')
 
+    # Add new column for improve E-QN System
+    # Modified by Suchat S. 2020-10-18
+    tran_type = db.Column(db.String(2), default='A')
+    revisit_flag = db.Column(db.String(2), default='N')
+
     @classmethod
     def find_by_ref_id(cls, _eqn_ref_id: str) -> "EQNCustomerTransQAnsModel":
         return cls.query.filter_by(eqn_ref_id=_eqn_ref_id).first()

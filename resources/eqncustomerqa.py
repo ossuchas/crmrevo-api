@@ -66,6 +66,11 @@ class EQNCustomerTransQAns(Resource):
     parser.add_argument("createdby", type=str)
     parser.add_argument("updatedby", type=str)
 
+    # Add new column for improve E-QN System
+    # Modified by Suchat S. 2020-10-18
+    parser.add_argument("tran_type", type=str)
+    parser.add_argument("revisit_flag", type=str)
+
     @jwt_required  # No longer needs brackets
     def post(self, applicationId):
         data = EQNCustomerTransQAns.parser.parse_args()
@@ -119,6 +124,11 @@ class EQNCustomerTransQAns(Resource):
             customer.process_flag = "N"
             customer.createdby = data["createdby"]
             customer.updatedby = data["updatedby"]
+
+            # Add new column for improve E-QN System
+            # Modified by Suchat S. 2020-10-18
+            customer.tran_type = data["tran_type"]
+            customer.revisit_flag = data["revisit_flag"]
         else:
             customer = EQNCustomerTransQAnsModel(**data)
             customer.eqn_ref_id = applicationId

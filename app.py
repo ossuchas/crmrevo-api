@@ -13,6 +13,7 @@ from resources.authen import Authen
 from resources.eqncustomerqa import EQNCustomerTransQAns
 from resources.sp_rp_lc_018 import sp_rp_lc_018
 from resources.ImptMstProjTran import ImptMstProjTran
+from resources.Project import Project
 
 from config import APP_SECRET_KEY
 
@@ -49,6 +50,7 @@ api.add_resource(Authen, "/eqn/oauth/token")
 api.add_resource(EQNCustomerTransQAns, "/eqn/submit/<string:applicationId>")
 api.add_resource(sp_rp_lc_018, "/crm/test")
 api.add_resource(ImptMstProjTran, "/crm/getlogstrans/<string:guid>")
+api.add_resource(Project, "/crm/projectlist")
 
 
 if __name__ == '__main__':
