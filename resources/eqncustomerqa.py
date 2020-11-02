@@ -13,6 +13,7 @@ from models.eqncustomerqa import EQNCustomerTransQAnsModel
 from schemas.eqncustomerqa import EQNCustomerTransQAnsSchema
 
 user_schema = EQNCustomerTransQAnsSchema(only=("tran_id", "eqn_ref_id"))
+eqn_schema_info = EQNCustomerTransQAnsSchema()
 user_list_schema = EQNCustomerTransQAnsSchema(many=True)
 
 
@@ -142,4 +143,18 @@ class EQNCustomerTransQAns(Resource):
         customer.save_to_db()
 
         return user_schema.dump(customer), 200
+
+
+class EQNCustomerTransQAnsInfo(Resource):
+    @jwt_required
+    def get(self, tran_id: str):
+        obj_eqn = EQNCustomerTransQAnsModel.find_by_tran_id(tran_id)
+        if obj_eqn:
+            # add to blacklist
+            jti = get_raw_jwt()["jti"]  # jti is "JWT ID", a unique identifier for a JWT.
+            BLACKLIST.add(jti)
+
+            return eqn_schema_info.dump(obj_eqn), 200
+
+        return {"message": "No Data Found"}, 404
 

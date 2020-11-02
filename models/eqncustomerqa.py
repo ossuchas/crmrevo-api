@@ -77,6 +77,10 @@ class EQNCustomerTransQAnsModel(db.Model):
         return cls.query.filter_by(eqn_ref_id=_eqn_ref_id).first()
 
     @classmethod
+    def find_by_tran_id(cls, _tran_id: str) -> "EQNCustomerTransQAnsModel":
+        return cls.query.filter_by(tran_id=_tran_id).first()
+
+    @classmethod
     def get_info_test_id(cls):
         sql_statement = """
            EXECUTE sp_kai_test @FileName = 0

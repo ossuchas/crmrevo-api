@@ -10,7 +10,7 @@ from ma import ma
 from blacklist import BLACKLIST
 
 from resources.authen import Authen
-from resources.eqncustomerqa import EQNCustomerTransQAns
+from resources.eqncustomerqa import EQNCustomerTransQAns, EQNCustomerTransQAnsInfo
 from resources.sp_rp_lc_018 import sp_rp_lc_018
 from resources.ImptMstProjTran import ImptMstProjTran
 from resources.Project import Project
@@ -48,6 +48,7 @@ def check_if_token_in_blacklist(decrypted_token):
 
 api.add_resource(Authen, "/eqn/oauth/token")
 api.add_resource(EQNCustomerTransQAns, "/eqn/submit/<string:applicationId>")
+api.add_resource(EQNCustomerTransQAnsInfo, "/eqn/info/<string:tran_id>")
 api.add_resource(sp_rp_lc_018, "/crm/test")
 api.add_resource(ImptMstProjTran, "/crm/getlogstrans/<string:guid>")
 api.add_resource(Project, "/crm/projectlist")
