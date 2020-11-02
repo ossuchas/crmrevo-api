@@ -25,6 +25,7 @@ class EQNCustomerTransQAns(Resource):
     parser.add_argument("last_name", type=str, required=True, help="This last_name field cannot blank allowed.")
     parser.add_argument("email", type=str, required=True, help="This email field cannot blank allowed.")
     parser.add_argument("mobile_no", type=str, required=True, help="This mobile no. field cannot blank allowed.")
+    parser.add_argument("total_required_answer", type=int, required=True, help="This fields total required anaser. fields cannot blank allowed." )
     parser.add_argument("consent_ads_flag", type=str, required=True,
                         help="This consent Ads flag field cannot blank allowed.")
     parser.add_argument("consent_bc_flag", type=str, required=True,
@@ -119,6 +120,7 @@ class EQNCustomerTransQAns(Resource):
             customer.other = data["other"]
             customer.comment = data["comment"]
             customer.total_answer = data["total_answer"]
+            customer.total_required_answer = data["total_required_answer"]
             customer.total_question= data["total_question"]
             customer.submit_dttm = data["submit_dttm"]
             customer.process_flag = "N"

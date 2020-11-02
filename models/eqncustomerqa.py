@@ -70,6 +70,7 @@ class EQNCustomerTransQAnsModel(db.Model):
     # Modified by Suchat S. 2020-10-18
     tran_type = db.Column(db.String(2), default='A')
     revisit_flag = db.Column(db.String(2), default='N')
+    total_required_answer = db.Column(db.Integer, default=0)
 
     @classmethod
     def find_by_ref_id(cls, _eqn_ref_id: str) -> "EQNCustomerTransQAnsModel":
