@@ -73,6 +73,9 @@ class EQNCustomerTransQAns(Resource):
     parser.add_argument("tran_type", type=str)
     parser.add_argument("revisit_flag", type=str)
 
+    parser.add_argument("contact_ref_id", type=str)
+    parser.add_argument("contact_ref_guid", type=str)
+
     @jwt_required  # No longer needs brackets
     def post(self, applicationId):
         data = EQNCustomerTransQAns.parser.parse_args()
@@ -132,6 +135,9 @@ class EQNCustomerTransQAns(Resource):
             # Modified by Suchat S. 2020-10-18
             customer.tran_type = data["tran_type"]
             customer.revisit_flag = data["revisit_flag"]
+
+            customer.contact_ref_id = data["contact_ref_id"]
+            customer.contact_ref_guid = data["contact_ref_guid"]
         else:
             customer = EQNCustomerTransQAnsModel(**data)
             customer.eqn_ref_id = applicationId
