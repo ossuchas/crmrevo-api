@@ -21,7 +21,8 @@ app = Flask(__name__)
 jwt = JWTManager(app)
 
 api = Api(app, prefix="/api/v1")
-CORS(app, resources=r"/api/*", allow_headers="Content-Type")
+# CORS(app, resources=r"/api/*", allow_headers="Content-Type")
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 load_dotenv(".env", verbose=True)
 app.config.from_object("config")
