@@ -8,11 +8,14 @@ from flask_jwt_extended import (
 )
 from blacklist import BLACKLIST
 
+from libs.ap_crud_contact_opp_actv import CRMCreateContactOppAct, CRMException
+
 
 from models.eqncustomerqa import EQNCustomerTransQAnsModel
 from schemas.eqncustomerqa import EQNCustomerTransQAnsSchema
 
-user_schema = EQNCustomerTransQAnsSchema(only=("tran_id", "eqn_ref_id"))
+user_schema = EQNCustomerTransQAnsSchema(only=("tran_id", "eqn_ref_id", "contact_ref_id", "contact_ref_guid",
+                                               "OpportunityID"))
 eqn_schema_info = EQNCustomerTransQAnsSchema()
 user_list_schema = EQNCustomerTransQAnsSchema(many=True)
 
@@ -147,6 +150,21 @@ class EQNCustomerTransQAns(Resource):
         BLACKLIST.add(jti)
 
         customer.save_to_db()
+
+        try:
+            # customer = EQNCustomerTransQAnsModel.find_by_ref_id(applicationId)
+            # customer.tran_id = applicationId
+
+            response = CRMCreateContactOppAct.crmsubmit_tran(customer.tran_id)
+            return response.json(), 200
+            # return user_schema.dump(customer), 200
+            # return {"data": user_schema.dump(customer), "result": response.json()}, 200
+            # return json.loads(response.content), 200
+        except CRMException as e:
+            return {"message": str(e)}, 401
+        except:
+            traceback.print_exc()
+            return {"message": "CRM Transaction Failed"}, 500
 
         return user_schema.dump(customer), 200
 

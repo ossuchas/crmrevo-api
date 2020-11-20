@@ -72,6 +72,8 @@ class EQNCustomerTransQAnsModel(db.Model):
     revisit_flag = db.Column(db.String(2), default='N')
     total_required_answer = db.Column(db.Integer, default=0)
 
+    OpportunityID = db.Column(UUID(as_uuid=True))
+
     @classmethod
     def find_by_ref_id(cls, _eqn_ref_id: str) -> "EQNCustomerTransQAnsModel":
         return cls.query.filter_by(eqn_ref_id=_eqn_ref_id).first()

@@ -14,6 +14,7 @@ from resources.eqncustomerqa import EQNCustomerTransQAns, EQNCustomerTransQAnsIn
 from resources.sp_rp_lc_018 import sp_rp_lc_018
 from resources.ImptMstProjTran import ImptMstProjTran
 from resources.Project import Project
+from resources.crmlistcustomer import Customer
 
 from config import APP_SECRET_KEY
 
@@ -53,6 +54,7 @@ api.add_resource(EQNCustomerTransQAnsInfo, "/eqn/info/<string:tran_id>")
 api.add_resource(sp_rp_lc_018, "/crm/test")
 api.add_resource(ImptMstProjTran, "/crm/getlogstrans/<string:guid>")
 api.add_resource(Project, "/crm/projectlist")
+api.add_resource(Customer, "/crm/listcustomer")
 
 
 if __name__ == '__main__':

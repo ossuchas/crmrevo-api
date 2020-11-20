@@ -10,6 +10,11 @@ API_KEY = os.environ.get("API_KEY")
 API_SECRET_KEY = os.environ.get("API_SECRET_KEY")
 APP_SECRET_KEY = os.environ.get("APP_SECRET_KEY")
 
+CRM_GETTOKEN_URL = os.environ.get("CRM_GETTOKEN_URL")
+CRM_CLIENT_ID = os.environ.get("CRM_CLIENT_ID")
+CRM_CLIENT_SECRET = os.environ.get("CRM_CLIENT_SECRET")
+CRM_API_PROC = os.environ.get("CRM_API_PROC")
+
 params = 'Driver={ODBC Driver 17 for SQL Server};' \
              f"Server=" + f"{DATABASE_HOST};" \
              f"Database=" + f"{DATABASE_NAME};" \
